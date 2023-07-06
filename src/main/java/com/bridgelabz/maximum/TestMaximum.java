@@ -2,25 +2,26 @@ package com.bridgelabz.maximum;
 
 public class TestMaximum {
 
-    public static Integer testMax(Integer num1, Integer num2, Integer num3) {
-
-        Integer maximumNum = num1;
-        if (num2.compareTo(maximumNum) > 0) {
-            maximumNum = num2;
-        }
-        if (num3.compareTo(maximumNum) > 0) {
-            maximumNum = num3;
-        }
-        return maximumNum;
-
-    }
-
     public static void main(String[] args) {
 
-        Integer num1 = 2;
-        Integer num2 = 3;
-        Integer num3 = 5;
-        Integer maximumNumber = testMax(num1,num2,num3);
-        System.out.println("Maximum number is :" +maximumNumber);
+        Float number1 = 2.5f;
+        Float number2 = 3.1f;
+        Float number3 = 1.19f;
+        Float maximumNum = testMax(number1,number2,number3);
+        System.out.println("Maximum number is : "+maximumNum);
+    }
+
+    public static Float testMax(Float number1, Float number2, Float number3) {
+
+        Float maximumNumber = number1;
+        if(number2.compareTo(maximumNumber) > 0 )
+        {
+            maximumNumber = number2;
+        }
+        if(number3.compareTo(maximumNumber) > 0 )
+        {
+            maximumNumber = number3;
+        }
+        return maximumNumber;
     }
 }
