@@ -1,7 +1,21 @@
 package com.bridgelabz.maximum;
 
-public class TestMaximum {
-    public static void main(String[] args) {
+public class TestMaximum <T extends Comparable<T>>
+{
+    T x,y,z;
+    public TestMaximum(T x, T y, T z)
+    {
+        super();
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+    public T maximum()
+    {
+        return TestMaximum.testMax(x, y, z);
+    }
+    public static void main(String[] args)
+    {
 
         Integer number1 = 2;
         Integer number2 = 3;
@@ -15,25 +29,32 @@ public class TestMaximum {
         String name2 = "Peach";
         String name3 = "Banana";
 
-        Integer maxInt = testMax(number1, number2, number3);
-        System.out.println("Maximum integer is : " + maxInt);
+        TestMaximum<Integer> printMaxInteger = new TestMaximum<Integer>(number1,number2,number3);
+        printMaxInteger.maximum();
+        TestMaximum<Float> printMaxFloat = new TestMaximum<Float>(num1,num2,num3);
+        printMaxFloat.maximum();
+        TestMaximum<String> printMaxString = new TestMaximum<String>(name1,name2,name3);
+        printMaxString.maximum();
 
-        Float maxFloat = testMax(num1, num2, num3);
-        System.out.println("Maximum float is : " + maxFloat);
-
-        String maxString = testMax(name1, name2, name3);
-        System.out.println("Maximum String is : " + maxString);
     }
+    public static <T extends Comparable<T>> T testMax(T x,T y ,T z)
+    {
 
-    public static <T extends Comparable<T>> T testMax(T x, T y, T z) {
-
-        T maximum = x;
-        if (y.compareTo(maximum) > 0) {
+        T maximum= x;
+        if(y.compareTo(maximum) > 0 )
+        {
             maximum = y;
         }
-        if (z.compareTo(maximum) > 0) {
+        if(z.compareTo(maximum) > 0 )
+        {
             maximum = z;
         }
+        printMax(x,y,z,maximum);
         return maximum;
+    }
+
+    public static <T> void printMax(T x,T y,T z,T maximum)
+    {
+        System.out.printf("Max of %s,%s and %s is %s \n ",x,y,z,maximum);
     }
 }
