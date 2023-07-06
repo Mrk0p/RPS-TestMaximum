@@ -1,25 +1,39 @@
 package com.bridgelabz.maximum;
 
 public class TestMaximum {
-
     public static void main(String[] args) {
+
+        Integer number1 = 2;
+        Integer number2 = 3;
+        Integer number3 = 5;
+
+        Float num1 = 2.5f;
+        Float num2 = 3.1f;
+        Float num3 = 1.19f;
 
         String name1 = "Apple";
         String name2 = "Peach";
         String name3 = "Banana";
-        String maximum = testMax(name1, name2, name3);
-        System.out.println("Maximum length of string is : " + maximum);
+
+        Integer maxInt = testMax(number1, number2, number3);
+        System.out.println("Maximum integer is : " + maxInt);
+
+        Float maxFloat = testMax(num1, num2, num3);
+        System.out.println("Maximum float is : " + maxFloat);
+
+        String maxString = testMax(name1, name2, name3);
+        System.out.println("Maximum String is : " + maxString);
     }
 
-    public static String testMax(String number1, String number2, String number3) {
+    public static <T extends Comparable<T>> T testMax(T x, T y, T z) {
 
-        String maximumNumber = number1;
-        if (number2.compareTo(maximumNumber) > 0) {
-            maximumNumber = number2;
+        T maximum = x;
+        if (y.compareTo(maximum) > 0) {
+            maximum = y;
         }
-        if (number3.compareTo(maximumNumber) > 0) {
-            maximumNumber = number3;
+        if (z.compareTo(maximum) > 0) {
+            maximum = z;
         }
-        return maximumNumber;
+        return maximum;
     }
 }
